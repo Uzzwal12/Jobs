@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import NavBar from "../../Components/NavBar";
+import {userLoginInitiate} from "../../redux/Actions/auth"
 import "./login.css";
 
 const Login = () => {
-  const [loginDetails, setLoginDetails] = useState({});
+  const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
+  const dispatch = useDispatch()
 
-  const handleSubmit = (e) => {
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setLoginDetails({ ...loginDetails, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    dispatch(userLoginInitiate(loginDetails))
   };
 
   return (
@@ -22,7 +32,8 @@ const Login = () => {
           placeholder="Enter your email"
           type="email"
           className="loginInput"
-          name="Email"
+          name="email"
+          onChange={handleChange}
           value={loginDetails.email}
           required
         />
@@ -30,7 +41,9 @@ const Login = () => {
           <label htmlFor="password" className="loginLabels">
             Password
           </label>
-          <span className="forgotPassword">Forgot your password?</span>
+          <Link to="/forgotPassword" className="forgotPassword">
+            Forgot your password?
+          </Link>
         </div>
         <input
           placeholder="Password"
@@ -38,14 +51,15 @@ const Login = () => {
           className="loginInput"
           required
           minLength="6"
-          name="Password"
+          name="password"
+          onChange={handleChange}
           value={loginDetails.password}
         />
         <div className="loginButtonContainer">
           <button className="loginButton">Login</button>
         </div>
         <p className="new-here">
-          New to MyJobs?{" "}
+          New to MyJobs?
           <Link className="createAccount" to="/signUp">
             Create an account
           </Link>

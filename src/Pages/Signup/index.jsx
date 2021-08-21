@@ -18,9 +18,7 @@ const SignUp = () => {
         <label className="userLabel">I'm a</label>
         <div className="userContainer">
           <button className="recruiter">Recruiter</button>
-          <button>
-            <i class="fa fa-users"></i> Candidate
-          </button>
+          <button>Candidate</button>
         </div>
         <label htmlFor="text" className="signUpLabels">
           Full Name*
