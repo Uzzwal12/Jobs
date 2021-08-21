@@ -1,6 +1,6 @@
 import NavBar from "../../Components/NavBar";
 import "./home.css";
-import Image from "./home-image.jpg";
+import Image from "../../images/home-image.jpg";
 
 const Home = () => {
   return (
@@ -25,9 +25,9 @@ const Home = () => {
               Get more <br /> visibility
             </div>
             <div className="section-box-content">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Repellat impedit eum ipsa officia ab facere maxime quaerat,
-              facilis reiciendis eius?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat
+              impedit eum ipsa officia ab facere maxime quaerat, facilis
+              reiciendis eius?
             </div>
           </div>
           <div className="section-box margin-right">
@@ -54,17 +54,17 @@ const Home = () => {
         <div className="sec-title">Companies Who Trust Us</div>
         <div className="sec-content-2">
           <div className="row logo-row-1">
-            <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
           </div>
           <div className="row logo-row-2">
-          <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
-            <img src={Image} style={{width: '100px' }} />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Image} style={{ width: "100px" }} alt="logo" />
           </div>
         </div>
       </div>

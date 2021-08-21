@@ -5,7 +5,7 @@ import "./resetPassword.css";
 
 const ResetPassword = () => {
   return (
-    <>
+    <div className="resetPassword-wrapper">
       <Navbar showButton />
       <div>
         <div className="resetPasswordContainer">
@@ -36,7 +36,7 @@ const ResetPassword = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

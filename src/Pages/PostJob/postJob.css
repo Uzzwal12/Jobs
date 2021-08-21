@@ -4,24 +4,19 @@
   box-sizing: border-box;
 }
 
-.postContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient(
-    180deg,
-    rgba(26, 37, 60, 1) 37%,
-    rgba(237, 246, 255, 1) 37%
-  );
+.postJob-Wrapper {
+  background: transparent linear-gradient(248deg, #303f5e 0%, #1a253c 100%) 0%
+    0% no-repeat padding-box;
+  height: 390px;
 }
+
 
 .postBox {
   display: flex;
   justify-content: space-evenly;
   height: 430px;
   width: 560px;
+  margin: 80px auto;
   flex-direction: column;
   border: 1px solid #557da526;
   border-radius: 20px;
@@ -63,7 +58,7 @@
   margin: 0 auto;
 }
 
-.descText:focus{
+.descText:focus {
   outline: none;
   border: 1px solid #43afff;
 }
@@ -89,4 +84,3 @@
   border-radius: 5px;
   font-size: 16px;
 }
-

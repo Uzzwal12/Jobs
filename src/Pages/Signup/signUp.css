@@ -5,9 +5,6 @@
 }
 
 .signUpContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
   width: 100vw;
   background: linear-gradient(
@@ -21,6 +18,7 @@
   display: flex;
   justify-content: space-evenly;
   height: 710px;
+  margin: 20px auto;
   width: 560px;
   max-width: 560px;
   max-height: 710px;

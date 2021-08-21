@@ -1,7 +1,7 @@
 .navContainer {
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 80px);
+  width: calc(100% - 100px);
   align-items: center;
   padding: 20px 0;
   border-bottom: 1px solid #4d618e;
