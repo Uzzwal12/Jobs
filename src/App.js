@@ -16,7 +16,7 @@ function App() {
         <Route path="/signUp" component={SignUp} />
         <Route path="/postJob" component={PostJob} />
         <Route path="/forgotPassword" component={ForgotPassowrd} />
-        <Route path="/resetPassowrd" component={ResetPassword} />
+        <Route path="/resetPassword" component={ResetPassword} />
         <Route path="/" exact component={Home} />
       </Switch>
     </BrowserRouter>
