@@ -4,6 +4,7 @@ import "./navBar.css";
 
 const NavBar = ({ showButton }) => {
   const history = useHistory();
+  const userData = JSON.parse(localStorage.getItem("userData"));
 
   const handleClick = () => {
     history.push("/login");
@@ -13,11 +14,17 @@ const NavBar = ({ showButton }) => {
       <span className="my">
         My<span className="jobs">Jobs</span>
       </span>
-      {showButton && (
-        <button onClick={handleClick} className="loginSignup">
-          Login/Signup
-        </button>
-      )}
+      {showButton &&
+        (userData ? (
+          <div className="loggedInUserWrapper">
+            <div className="loggedInUser">{userData.name.charAt(0)}</div>
+            <i className="fa fa-caret-down drop-icon" aria-hidden="true"></i>
+          </div>
+        ) : (
+          <button onClick={handleClick} className="loginSignup">
+            Login/Signup
+          </button>
+        ))}
     </nav>
   );
 };

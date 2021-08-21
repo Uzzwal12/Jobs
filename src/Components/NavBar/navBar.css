@@ -32,3 +32,24 @@
 .loginSignup:focus {
   outline: none;
 }
+
+.loggedInUserWrapper {
+  display: flex;
+}
+
+.loggedInUser {
+  height: 45px;
+  width: 45px;
+  border-radius: 50%;
+  background-color: #d9efff;
+  display: flex;
+  justify-content: center;
+  font-size: 18px;
+  align-items: center;
+}
+
+.drop-icon {
+  color: white;
+  margin: 15px 0 0 15px;
+  cursor: pointer;
+}

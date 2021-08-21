@@ -3,10 +3,14 @@ import { userActions } from "../actionTypes";
 const initialState = {
   userSignUpLoader: false,
   error: "",
-  userSignUp: "",
+  userSignUp: {},
   userLogin: {},
-  userLoginSuccess:false,
+  userLoginSuccess: false,
+  userSignUpSuccess: false,
   userLoginLoader: false,
+  validEmail: false,
+  forgotPasswordLoader: false,
+  forgotPasswordValidUserData: {},
 };
 
 export default function UserAuthentication(state = initialState, action) {
@@ -24,13 +28,13 @@ export default function UserAuthentication(state = initialState, action) {
         ...state,
         userSignUpLoader: false,
         userSignUp: payload,
+        userSignUpSuccess: true,
       };
     case userActions.USER_SIGN_UP_FAILURE:
       return {
         ...state,
         userSignUpLoader: false,
         error: payload,
-        userSignUp: "",
       };
 
     case userActions.USER_LOGIN_INITIATE:
@@ -44,7 +48,7 @@ export default function UserAuthentication(state = initialState, action) {
         ...state,
         userLoginLoader: false,
         userLogin: payload,
-        userLoginSuccess:true
+        userLoginSuccess: true,
       };
 
     case userActions.USER_LOGIN_FAILURE:
@@ -54,18 +58,26 @@ export default function UserAuthentication(state = initialState, action) {
         error: payload,
       };
 
-    case userActions.CLEAR_USER_SIGN_UP:
+    case userActions.FORGOT_PASSWORD_INITIATE:
       return {
         ...state,
-        userSignUp: "",
-        error: "",
+        forgotPasswordLoader: true,
       };
 
-    case userActions.CLEAR_USER_LOGIN_DATA:
+    case userActions.FORGOT_PASSWORD_SUCCESS:
       return {
         ...state,
-        userLogin: {},
-        error: "",
+        forgotPasswordLoader: false,
+        validEmail: true,
+        forgotPasswordValidUserData: payload,
+      };
+
+    case userActions.FORGOT_PASSWORD_FAILURE:
+      return {
+        ...state,
+        forgotPasswordLoader: false,
+        validEmail: false,
+        error: payload,
       };
 
     default:

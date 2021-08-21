@@ -1,13 +1,24 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import NavBar from "../../Components/NavBar";
-import {userLoginInitiate} from "../../redux/Actions/auth"
+import { userLoginInitiate } from "../../redux/Actions/auth";
+import { getMemoizedUserData } from "../../redux/Selectors/auth";
 import "./login.css";
 
 const Login = () => {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const { error, userLoginSuccess, userLogin } =
+    useSelector(getMemoizedUserData);
+
+  useEffect(() => {
+    if (userLoginSuccess) {
+      localStorage.setItem('userData', JSON.stringify(userLogin))
+      history.push("/");
+    }
+  }, [history, userLogin, userLoginSuccess]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -15,9 +26,9 @@ const Login = () => {
     setLoginDetails({ ...loginDetails, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(userLoginInitiate(loginDetails))
+    dispatch(userLoginInitiate(loginDetails));
   };
 
   return (
@@ -55,6 +66,7 @@ const Login = () => {
           onChange={handleChange}
           value={loginDetails.password}
         />
+        {error && <p className="error">Invalid email address or password</p>}
         <div className="loginButtonContainer">
           <button className="loginButton">Login</button>
         </div>

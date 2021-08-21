@@ -1,13 +1,30 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import NavBar from "../../Components/NavBar";
+import { userSignUpInitiate } from "../../redux/Actions/auth";
 import "./signUp.css";
 
 const SignUp = () => {
-  const [signUpDetails, setLoginDetails] = useState({});
+  const [signUpDetails, setLoginDetails] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    skills: "",
+    userRole: 0,
+  });
+  const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+
+    setLoginDetails({ ...signUpDetails, [name]: value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    dispatch(userSignUpInitiate(signUpDetails));
   };
 
   return (
@@ -17,8 +34,21 @@ const SignUp = () => {
         <p className="signUp">Signup</p>
         <label className="userLabel">I'm a</label>
         <div className="userContainer">
-          <button className="recruiter">Recruiter</button>
-          <button>Candidate</button>
+          <button
+            className="recruiter"
+            type="button"
+            // onClick={setLoginDetails({ userRole: 0 })}
+          >
+            <i class="fas fa-user-plus recruiter-icon"></i> Recruiter
+          </button>
+          <button
+            className="candidate"
+            type="button"
+            // onClick={setLoginDetails({ userRole: 1 })}
+          >
+            <i class="fa fa-users candidate-icon" aria-hidden="true"></i>
+            Candidate
+          </button>
         </div>
         <label htmlFor="text" className="signUpLabels">
           Full Name*
@@ -27,9 +57,10 @@ const SignUp = () => {
           placeholder="Enter your full name"
           type="text"
           className="signUpInput"
-          name="FullName"
-          value={signUpDetails.fullName}
+          name="name"
+          value={signUpDetails.name}
           required
+          onChange={handleChange}
         />
         <label htmlFor="email" className="signUpLabels">
           Email address*
@@ -38,9 +69,10 @@ const SignUp = () => {
           placeholder="Enter your email"
           type="email"
           className="signUpInput"
-          name="Email"
+          name="email"
           value={signUpDetails.email}
           required
+          onChange={handleChange}
         />
         <div className="passwordContainer">
           <div className="createPassowrd">
@@ -52,9 +84,9 @@ const SignUp = () => {
               type="password"
               className="createPassword"
               required
-              minLength="6"
-              name="createPassword"
-              value={signUpDetails.createPassword}
+              onChange={handleChange}
+              name="password"
+              value={signUpDetails.password}
             />
           </div>
           <div className="confirmPassowrd">
@@ -66,7 +98,7 @@ const SignUp = () => {
               type="password"
               className="confirmPassword"
               required
-              minLength="6"
+              onChange={handleChange}
               name="confirmPassword"
               value={signUpDetails.confirmPassword}
             />
@@ -82,6 +114,7 @@ const SignUp = () => {
           name="skills"
           value={signUpDetails.skills}
           required
+          onChange={handleChange}
         />
 
         <div className="signUpButtonContainer">

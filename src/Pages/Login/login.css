@@ -90,3 +90,8 @@
   color: #43afff;
   font-size: 16px;
 }
+
+.error {
+  text-align: end;
+  color: #ff0000;
+}

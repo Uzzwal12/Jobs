@@ -1,8 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
+import { useHistory } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import Navbar from "../../Components/NavBar";
+import { forgotPasswordInitiate } from "../../redux/Actions/auth";
+import { getMemoizedUserData } from "../../redux/Selectors/auth";
 import "./forgotPassword.css";
 
 const ForgotPassowrd = () => {
+  const [email, setEmail] = useState("");
+  const dispatch = useDispatch();
+  const { validEmail, error } = useSelector(getMemoizedUserData);
+  const history = useHistory();
+
+  console.log(error)
+
+  useEffect(() => {
+    if (validEmail) {
+      history.push("/resetPassword");
+    }
+  }, [history, validEmail]);
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setEmail(value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(forgotPasswordInitiate(email));
+  };
   return (
     <div className="wrapper">
       <Navbar showButton />
@@ -19,11 +45,16 @@ const ForgotPassowrd = () => {
           placeholder="Enter your email"
           type="email"
           className="forgotPasswordInput"
-          name="Email"
+          name="email"
+          value={email}
           required
+          onChange={handleChange}
         />
+        {error && <p className="invalidEmail">No user found with this email.</p>}
         <div className="forgotButtonContainer">
-          <button className="forgotButton">Submit</button>
+          <button className="forgotButton" onClick={handleSubmit}>
+            Submit
+          </button>
         </div>
       </div>
     </div>
