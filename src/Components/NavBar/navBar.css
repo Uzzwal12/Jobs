@@ -1,0 +1,36 @@
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100vw - 200px);
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  padding: 20px 0;
+  border-bottom: 1px solid #4d618e;
+}
+
+.my {
+  font-size: 22px;
+  color: white;
+}
+
+.jobs {
+  font-size: 22px;
+  color: #43afff;
+}
+
+.loginSignup {
+  width: 150px;
+  height: 45px;
+  color: white;
+  background-color: transparent;
+  cursor: pointer;
+  border: 1px solid #43afff;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.loginSignup:focus {
+  outline: none;
+}

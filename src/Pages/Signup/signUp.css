@@ -1,0 +1,151 @@
+* {
+  list-style: none;
+  text-decoration: none;
+  box-sizing: border-box;
+}
+
+.signUpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: linear-gradient(
+    180deg,
+    rgba(26, 37, 60, 1) 37%,
+    rgba(237, 246, 255, 1) 37%
+  );
+}
+
+.signUpBox {
+  display: flex;
+  justify-content: space-evenly;
+  height: 710px;
+  width: 560px;
+  max-width: 560px;
+  max-height: 710px;
+  flex-direction: column;
+  border: 1px solid #557da526;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 0px 10px 20px 0px #557da526;
+}
+
+.signUp {
+  margin: 0 30px;
+  color: #303f60;
+  font-size: 22px;
+  font-weight: bold;
+}
+.userLabel {
+  margin: 0 30px;
+  color: #303f60;
+  font-size: 14px;
+}
+.recruiter {
+  height: 45px;
+  width: 135px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+}
+
+.candidate {
+  height: 45px;
+  width: 135px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+}
+.signUpLabels {
+  margin: 0 30px;
+  color: #303f60;
+  font-size: 14px;
+  height: 14px;
+}
+.passwordLabel {
+  color: #303f60;
+  font-size: 14px;
+  height: 14px;
+}
+
+.userContainer {
+  width: 500px;
+  display: flex;
+}
+
+.signUpInput {
+  height: 45px;
+  width: 500px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  font-size: 16px;
+  padding-left: 15px;
+  margin: 0 auto;
+}
+
+.signUpInput:focus {
+  border: 1px solid #43afff;
+  outline: none;
+}
+
+.passwordContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+  margin: 0 auto;
+}
+
+.createPassowrd {
+  width: 48%;
+}
+.confirmPassowrd {
+  width: 48%;
+}
+.createPassword {
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  font-size: 16px;
+  padding-left: 15px;
+  margin: 0 auto;
+}
+.confirmPassword {
+  width: 100%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #c6c6c6;
+  font-size: 16px;
+  padding-left: 15px;
+  margin: 0 auto;
+}
+.signUpButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUpButton {
+  width: 150px;
+  height: 45px;
+  color: white;
+  background-color: #43afff;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.have-account {
+  text-align: center;
+  font-size: 16px;
+}
+
+.logintext {
+  color: #43afff;
+  font-size: 16px;
+  margin-left: 5px;
+}

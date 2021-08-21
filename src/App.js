@@ -7,7 +7,6 @@ import Login from "./Pages/Login";
 import SignUp from "./Pages/Signup";
 import PostJob from "./Pages/PostJob";
 
-import "./App.css";
 
 function App() {
   return (
