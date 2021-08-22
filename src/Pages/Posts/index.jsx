@@ -26,7 +26,7 @@ const Posts = ({ history: { push } }) => {
                   <span>{location}</span>
                   <button
                     className="post-view-button"
-                    onClick={() => useDispatch(showModal(true))}
+                    onClick={() => dispatch(showModal(true))}
                   >
                     View Applications
                   </button>
@@ -47,11 +47,6 @@ const Posts = ({ history: { push } }) => {
           </div>
         )}
       </div>
-      {showModal && (
-        <div className="post-modal">
-          <div style={{ background: "#fff" }}>Hello</div>
-        </div>
-      )}
     </div>
   );
 };

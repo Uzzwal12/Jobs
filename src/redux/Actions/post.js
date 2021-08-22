@@ -16,7 +16,7 @@ export const createNewPostFailure = (data) => ({
 });
 
 export const showModal = (data) => ({
-  type: postActions.CLEAR_POST_DATA,
+  type: postActions.SHOW_MODAL,
   payload: data,
 });
 
