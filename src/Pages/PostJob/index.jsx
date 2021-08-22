@@ -17,7 +17,7 @@ const PostJob = () => {
   const history = useHistory();
 
   const dispatch = useDispatch();
-  const { error, postsData, newPostSuccess } = useSelector(getPostMemoizedData);
+  const { newPostSuccess } = useSelector(getPostMemoizedData);
 
   useEffect(() => {
     if (newPostSuccess) {
@@ -26,9 +26,12 @@ const PostJob = () => {
     }
   }, [history, newPostSuccess]);
 
-  useEffect(() => () => {
-    dispatch(clearPostData());
-  },[]);
+  useEffect(
+    () => () => {
+      dispatch(clearPostData());
+    },
+    []
+  );
 
   const handleChange = (e) => {
     const { name, value } = e.target;

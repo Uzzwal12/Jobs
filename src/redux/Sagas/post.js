@@ -16,7 +16,6 @@ export function* createPostSaga({ payload }) {
       data: payload.newPost,
     };
     const result = yield sendRequest(config);
-    console.log("Res", result);
     yield put(createNewPostSuccess(result.data));
   } catch (err) {
     const errorString = err.message;

@@ -174,3 +174,8 @@
   font-size: 16px;
   margin-left: 5px;
 }
+
+.signUpErrors{
+  text-align: center;
+  color: #ff0000;
+}

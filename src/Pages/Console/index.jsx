@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import {getPostMemoizedData} from "../../redux/Selectors/post"
 import PostJob from "../PostJob";
 import Posts from "../Posts";

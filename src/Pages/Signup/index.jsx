@@ -18,7 +18,7 @@ const SignUp = () => {
   });
   const dispatch = useDispatch();
   const history = useHistory();
-  const { userSignUp, userSignUpSuccess } = useSelector(getMemoizedUserData);
+  const { userSignUpSuccess, error } = useSelector(getMemoizedUserData);
 
   useEffect(() => {
     if (userSignUpSuccess) {
@@ -131,6 +131,9 @@ const SignUp = () => {
           required
           onChange={handleChange}
         />
+        {error && (
+          <p className="signUpErrors">Please check your password again</p>
+        )}
 
         <div className="signUpButtonContainer">
           <button className="signUpButton">Signup</button>

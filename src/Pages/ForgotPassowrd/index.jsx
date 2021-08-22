@@ -13,8 +13,6 @@ const ForgotPassowrd = () => {
   const { validEmail, error } = useSelector(getMemoizedUserData);
   const history = useHistory();
 
-  console.log(error)
-
   useEffect(() => {
     if (validEmail) {
       history.push("/resetPassword");
