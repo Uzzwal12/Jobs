@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useDispatch } from 'react-redux';
 import './modal.css'
 import { showModal } from "../../redux/Actions/post";
@@ -41,8 +41,7 @@ const data = [
 
 const Modal = () => {
   const dispatch = useDispatch()
-  const [list, setList] = useState(data)
-
+  
   return (
     <div className="modal-wrapper">
       <div className="modal-children">
@@ -51,14 +50,14 @@ const Modal = () => {
             Applicants for this job
             <i className="fas fa-times" onClick={() => dispatch(showModal(false))} />
           </div>
-          <div>{list.length ? `Total ${list.length}` : '0'} applications</div>
+          <div>{data.length ? `Total ${data.length}` : '0'} applications</div>
         </div>
         <div className="modal-content">
-          {list.length ? (
+          {data.length ? (
             <div className="modal-content-list">
               <div className="list-flex">
-                {list.map((obj) => (
-                  <div className="modal-card">
+                {data.map((obj,indx) => (
+                  <div className="modal-card" key={indx}>
                     <div className="card-name">
                       <div className="first-char">{obj.name.charAt(0)}</div>
                       <div className="detail-div">

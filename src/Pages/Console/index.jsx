@@ -20,7 +20,7 @@ const Console = ({ history: { push }, location: { pathname } }) => {
           <div className="console-header">
             <div>
               <span onClick={() => push('/console/posts')}>Home</span>
-              {condition && (<span><i class="fas fa-chevron-right arrow-icon"></i></span>)}
+              {condition && (<span><i className="fas fa-chevron-right arrow-icon"></i></span>)}
               {condition && (<span>Post Job</span>)}
             </div>
             
