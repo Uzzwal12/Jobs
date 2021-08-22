@@ -2,6 +2,10 @@ import React from 'react'
 import NavBar from "../../Components/NavBar";
 import "./home.css";
 import Image from "../../images/home-image.jpg";
+import Logo1 from "../../images/logo1.png"
+import Logo2 from "../../images/logo2.png"
+import Logo3 from "../../images/logo.png"
+
 
 const Home = () => {
   return (
@@ -55,17 +59,17 @@ const Home = () => {
         <div className="sec-title">Companies Who Trust Us</div>
         <div className="sec-content-2">
           <div className="row logo-row-1">
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Logo2} className="img-style" alt="logo" />
+            <img src={Logo1} className="img-style" alt="logo" />
+            <img src={Logo2} className="img-style" alt="logo" />
+            <img src={Logo3} className="img-style" alt="logo" />
+            <img src={Logo2} className="img-style" alt="logo" />
           </div>
           <div className="row logo-row-2">
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
-            <img src={Image} style={{ width: "100px" }} alt="logo" />
+            <img src={Logo1} className="img-style" alt="logo" />
+            <img src={Logo3} className="img-style" alt="logo" />
+            <img src={Logo2} className="img-style" alt="logo" />
+            <img src={Logo1} className="img-style" alt="logo" />
           </div>
         </div>
       </div>
