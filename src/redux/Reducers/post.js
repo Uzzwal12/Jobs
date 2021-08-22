@@ -5,6 +5,7 @@ const initialState = {
   error: "",
   newPostSuccess: false,
   postsData: [],
+  modalShow: false,
 };
 
 export default function postReducer(state = initialState, action) {
@@ -34,6 +35,12 @@ export default function postReducer(state = initialState, action) {
         createPostLoader: false,
         error: payload,
         newPostSuccess: false,
+      };
+
+    case postActions.SHOW_MODAL:
+      return {
+        ...state,
+        modalShow: payload,
       };
 
     case postActions.CLEAR_POST_DATA:

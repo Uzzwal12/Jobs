@@ -1,5 +1,6 @@
 .postContainer {
   height: 100%;
+  position: relative;
 }
 
 .post-contaier-wrapper {

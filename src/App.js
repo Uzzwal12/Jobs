@@ -1,11 +1,12 @@
+import React from 'react'
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-
 import Home from "./Pages/Home";
 import ResetPassword from "./Pages/ResetPassword";
 import ForgotPassowrd from "./Pages/ForgotPassowrd";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/Signup";
 import Console from "./Pages/Console";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/resetPassword" component={ResetPassword} />
         <Route path="/" exact component={Home} />
       </Switch>
+      <ToastContainer />
     </BrowserRouter>
   );
 }

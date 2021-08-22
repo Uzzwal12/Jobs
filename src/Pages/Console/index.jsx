@@ -1,11 +1,15 @@
 import React from "react";
 import { Route, Switch, Redirect, withRouter } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import {getPostMemoizedData} from "../../redux/Selectors/post"
 import PostJob from "../PostJob";
 import Posts from "../Posts";
 import NavBar from '../../Components/NavBar';
+import Modal from '../../Components/Modal';
 import './console.css'
 
 const Console = ({ history: { push }, location: { pathname } }) => {
+  const {modalShow} = useSelector(getPostMemoizedData)
   const condition = pathname.includes('post-job')
 
   return (
@@ -30,6 +34,11 @@ const Console = ({ history: { push }, location: { pathname } }) => {
           </div>
         </div>
       </div>
+      {modalShow && (
+        <Modal>
+          kdhbvkbjvds
+        </Modal>
+      )}
     </div>
   );
 };
