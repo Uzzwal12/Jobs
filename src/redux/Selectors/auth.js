@@ -12,6 +12,9 @@ export const getMemoizedUserData = createSelector(
       validEmail,
       forgotPasswordLoader,
       forgotPasswordValidUserData,
+      changePasswordLoader,
+      passwordChangeSuccess,
+      changedPasswordUserData
     } = authState;
 
     return {
@@ -23,6 +26,9 @@ export const getMemoizedUserData = createSelector(
       validEmail,
       forgotPasswordLoader,
       forgotPasswordValidUserData,
+      changePasswordLoader,
+      passwordChangeSuccess,
+      changedPasswordUserData
     };
   }
 );

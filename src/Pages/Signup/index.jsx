@@ -35,16 +35,20 @@ const SignUp = () => {
         <label className="userLabel">I'm a</label>
         <div className="userContainer">
           <button
-            className="recruiter"
+            className={`recruiter ${
+              signUpDetails.userRole === 0 ? "active" : ""
+            }`}
             type="button"
-            // onClick={setLoginDetails({ userRole: 0 })}
+            onClick={()=>setLoginDetails({ ...signUpDetails, userRole: 0 })}
           >
-            <i class="fas fa-user-plus recruiter-icon"></i> Recruiter
+            <i className="fas fa-user-plus recruiter-icon"></i> Recruiter
           </button>
           <button
-            className="candidate"
+            className={`candidate ${
+              signUpDetails.userRole === 1 ? "active" : ""
+            }`}
             type="button"
-            // onClick={setLoginDetails({ userRole: 1 })}
+            onClick={()=>setLoginDetails({ ...signUpDetails, userRole: 1 })}
           >
             <i class="fa fa-users candidate-icon" aria-hidden="true"></i>
             Candidate

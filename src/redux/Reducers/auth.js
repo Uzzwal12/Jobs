@@ -11,6 +11,9 @@ const initialState = {
   validEmail: false,
   forgotPasswordLoader: false,
   forgotPasswordValidUserData: {},
+  changePasswordLoader: false,
+  changedPasswordUserData: {},
+  passwordChangeSuccess:false
 };
 
 export default function UserAuthentication(state = initialState, action) {
@@ -77,6 +80,27 @@ export default function UserAuthentication(state = initialState, action) {
         ...state,
         forgotPasswordLoader: false,
         validEmail: false,
+        error: payload,
+      };
+
+    case userActions.CHANGE_PASSWORD_INITIATE:
+      return {
+        ...state,
+        changePasswordLoader: true,
+      };
+
+    case userActions.CHANGE_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        changePasswordLoader: false,
+        changedPasswordUserData: payload,
+        passwordChangeSuccess:true
+      };
+
+    case userActions.CHANGE_PASSWORD_FAILURE:
+      return {
+        ...state,
+        changePasswordLoader: false,
         error: payload,
       };
 

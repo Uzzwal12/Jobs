@@ -52,4 +52,48 @@
   color: white;
   margin: 15px 0 0 15px;
   cursor: pointer;
+  position: relative;
+}
+
+.triangle-up {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 20px solid white;
+  position: absolute;
+  bottom: 20px;
+  right: 0px;
+}
+
+.logout::after {
+  content: "Logout";
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.logout {
+  background-color: white;
+  position: absolute;
+  top: 10%;
+  width: 100px;
+  padding: 0 10px;
+  display: flex;
+  right: 50px;
+  align-items: center;
+  height: 30px;
+  border-radius: 3px;
+  animation: toggle 0.2s;
+  cursor: pointer;
+}
+
+@keyframes toggle {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

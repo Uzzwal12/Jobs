@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 import { Link, useHistory } from "react-router-dom";
 import NavBar from "../../Components/NavBar";
 import { userLoginInitiate } from "../../redux/Actions/auth";
 import { getMemoizedUserData } from "../../redux/Selectors/auth";
 import "./login.css";
+
 
 const Login = () => {
   const [loginDetails, setLoginDetails] = useState({ email: "", password: "" });
@@ -17,6 +19,7 @@ const Login = () => {
     if (userLoginSuccess) {
       localStorage.setItem('userData', JSON.stringify(userLogin))
       history.push("/");
+      toast.dark("Logged in successfully.")
     }
   }, [history, userLogin, userLoginSuccess]);
 

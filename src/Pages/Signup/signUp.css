@@ -54,6 +54,15 @@
   color: #43afff;
 }
 
+.active{
+  background-color: #43afff;
+  color: white;
+}
+
+.active i{
+  color: white;
+}
+
 .candidate {
   height: 45px;
   width: 135px;

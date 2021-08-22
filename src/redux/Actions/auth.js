@@ -44,3 +44,18 @@ export const forgotPasswordFailure = (data) => ({
   type: userActions.FORGOT_PASSWORD_FAILURE,
   payload: data,
 });
+
+export const changePasswordInitiate = (data) => ({
+  type: userActions.CHANGE_PASSWORD_INITIATE,
+  payload: data,
+});
+
+export const changePasswordSuccess = (data) => ({
+  type: userActions.CHANGE_PASSWORD_SUCCESS,
+  payload: data,
+});
+
+export const changePasswordFailure = (data) => ({
+  type: userActions.CHANGE_PASSWORD_FAILURE,
+  payload: data,
+});

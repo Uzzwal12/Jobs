@@ -14,7 +14,7 @@ const Home = () => {
           <button className="column-1-button">Get Started</button>
         </div>
         <div className="column-2">
-          <img src={Image} className="image-main" />
+          <img src={Image} className="image-main" alt="main"/>
         </div>
       </div>
       <div className="section">
