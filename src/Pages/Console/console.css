@@ -1,8 +1,14 @@
 .console-container {
   height: 100%;
+  background: #EDF6FF 0% 0% no-repeat padding-box;
+  position: relative;
+}
+
+.console-background-contain {
   background: transparent linear-gradient(260deg, #303f60 0%, #1a253c 100%) 0%
     0% no-repeat padding-box;
   background-size: 100% 35%;
+  height: 100%;
 }
 
 .console-wrap {
@@ -11,7 +17,7 @@
 }
 
 .console-header div {
-  margin: 5px 0;
+  margin: 5px 0 25px;
   color: white;
   font-size: 12px;
   display: flex;
@@ -27,7 +33,7 @@
 }
 
 .console-content {
-  height: calc(100% - 22px);
+  height: calc(100% - 46px);
 }
 
 .arrow-icon {

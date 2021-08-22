@@ -10,22 +10,24 @@ const Console = ({ history: { push }, location: { pathname } }) => {
 
   return (
     <div className="console-container">
-      <NavBar showButton/>
-      <div className="console-wrap">
-        <div className="console-header">
-          <div>
-            <span onClick={() => push('/console/posts')}>Home</span>
-            {condition && (<span><i class="fas fa-chevron-right arrow-icon"></i></span>)}
-            {condition && (<span>Post Job</span>)}
+      <div className="console-background-contain">
+        <NavBar showButton/>
+        <div className="console-wrap">
+          <div className="console-header">
+            <div>
+              <span onClick={() => push('/console/posts')}>Home</span>
+              {condition && (<span><i class="fas fa-chevron-right arrow-icon"></i></span>)}
+              {condition && (<span>Post Job</span>)}
+            </div>
+            
           </div>
-          
-        </div>
-        <div className="console-content">
-          <Switch>
-            <Route path="/console/post-job" component={PostJob} />
-            <Route path="/console/posts" component={Posts} />
-            <Redirect from="/console" to="/console/posts" />
-          </Switch>
+          <div className="console-content">
+            <Switch>
+              <Route path="/console/post-job" component={PostJob} />
+              <Route path="/console/posts" component={Posts} />
+              <Redirect from="/console" to="/console/posts" />
+            </Switch>
+          </div>
         </div>
       </div>
     </div>

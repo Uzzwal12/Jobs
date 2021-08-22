@@ -8,12 +8,12 @@ import {
   forgotPasswordFailure,
   forgotPasswordSuccess,
   changePasswordFailure,
-  changePasswordSuccess
+  changePasswordSuccess,
 } from "../Actions/auth";
 const url = process.env.REACT_APP_BASE_URL;
 
 export function* userSignUpSaga({ payload }) {
-  console.log("payload",payload)
+  console.log("payload", payload);
   try {
     const config = {
       method: "post",
@@ -24,12 +24,10 @@ export function* userSignUpSaga({ payload }) {
       data: payload,
     };
     const result = yield sendRequest(config);
-    console.log("result", result);
     yield put(userSignUpSuccess(result.data));
   } catch (error) {
-    console.log(error)
-    // const errorString = error.message;
-    // yield put(userSignUpFailure(errorString));
+    const errorString = error.message;
+    yield put(userSignUpFailure(errorString));
   }
 }
 
@@ -69,12 +67,12 @@ export function* forgotPasswordSaga({ payload }) {
 export function* changePasswordSaga({ payload }) {
   try {
     const config = {
-      method: 'post',
+      method: "post",
       url: `${url}auth/resetpassword`,
-      headers: { 
-        'Content-Type': 'application/json'
+      headers: {
+        "Content-Type": "application/json",
       },
-      data : payload
+      data: payload,
     };
     const result = yield sendRequest(config);
     yield put(changePasswordSuccess(result.data));
