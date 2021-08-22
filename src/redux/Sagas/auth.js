@@ -13,6 +13,7 @@ import {
 const url = process.env.REACT_APP_BASE_URL;
 
 export function* userSignUpSaga({ payload }) {
+  console.log("payload",payload)
   try {
     const config = {
       method: "post",
@@ -26,8 +27,9 @@ export function* userSignUpSaga({ payload }) {
     console.log("result", result);
     yield put(userSignUpSuccess(result.data));
   } catch (error) {
-    const errorString = error.message;
-    yield put(userSignUpFailure(errorString));
+    console.log(error)
+    // const errorString = error.message;
+    // yield put(userSignUpFailure(errorString));
   }
 }
 

@@ -1,12 +1,14 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+import { toast } from "react-toastify";
 import NavBar from "../../Components/NavBar";
 import { userSignUpInitiate } from "../../redux/Actions/auth";
+import { getMemoizedUserData } from "../../redux/Selectors/auth";
 import "./signUp.css";
 
 const SignUp = () => {
-  const [signUpDetails, setLoginDetails] = useState({
+  const [signUpDetails, setSignUpDetails] = useState({
     name: "",
     email: "",
     password: "",
@@ -15,11 +17,20 @@ const SignUp = () => {
     userRole: 0,
   });
   const dispatch = useDispatch();
+  const history = useHistory();
+  const { userSignUp, userSignUpSuccess } = useSelector(getMemoizedUserData);
+
+  useEffect(() => {
+    if (userSignUpSuccess) {
+      toast.dark("Signed up successfully");
+      history.push("/login");
+    }
+  }, [history, userSignUpSuccess]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
 
-    setLoginDetails({ ...signUpDetails, [name]: value });
+    setSignUpDetails({ ...signUpDetails, [name]: value });
   };
 
   const handleSubmit = (e) => {
@@ -39,7 +50,7 @@ const SignUp = () => {
               signUpDetails.userRole === 0 ? "active" : ""
             }`}
             type="button"
-            onClick={()=>setLoginDetails({ ...signUpDetails, userRole: 0 })}
+            onClick={() => setSignUpDetails({ ...signUpDetails, userRole: 0 })}
           >
             <i className="fas fa-user-plus recruiter-icon"></i> Recruiter
           </button>
@@ -48,9 +59,9 @@ const SignUp = () => {
               signUpDetails.userRole === 1 ? "active" : ""
             }`}
             type="button"
-            onClick={()=>setLoginDetails({ ...signUpDetails, userRole: 1 })}
+            onClick={() => setSignUpDetails({ ...signUpDetails, userRole: 1 })}
           >
-            <i class="fa fa-users candidate-icon" aria-hidden="true"></i>
+            <i className="fa fa-users candidate-icon" aria-hidden="true"></i>
             Candidate
           </button>
         </div>

@@ -1,10 +1,8 @@
-import NavBar from "../../Components/NavBar";
 import "./postJob.css";
 
 const PostJob = () => {
   return (
     <div className="postJob-Wrapper">
-      <NavBar />
       <form className="postBox">
         <p className="post">Login</p>
         <label htmlFor="title" className="postLabels">

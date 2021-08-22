@@ -1,11 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { withRouter } from 'react-router-dom'
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
+import { toast } from "react-toastify";
+import { clearLoginData } from "../../redux/Actions/auth";
 import "./navBar.css";
 
-const NavBar = ({ showButton }) => {
+const NavBar = ({ showButton, location: { pathname }, history: { push } }) => {
   const [showLogout, setShow] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
   const userData = JSON.parse(localStorage.getItem("userData"));
 
   const handleClick = () => {
@@ -14,6 +19,8 @@ const NavBar = ({ showButton }) => {
 
   const handleLogout = () => {
     localStorage.clear();
+    dispatch(clearLoginData());
+    toast.dark("Logged out successfully");
     history.push("/login");
   };
 
@@ -25,6 +32,13 @@ const NavBar = ({ showButton }) => {
       {showButton &&
         (userData ? (
           <div className="loggedInUserWrapper">
+            <button
+              className={`postJobLink ${pathname.includes('post-job') ? 'postJobLinkSeleted' : ''}`}
+              onClick={() => push('/console/post-job')}
+            >
+              Post a Job
+            </button>
+
             <div className="loggedInUser">
               {userData.name.charAt(0).toUpperCase()}
             </div>
@@ -49,4 +63,4 @@ const NavBar = ({ showButton }) => {
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

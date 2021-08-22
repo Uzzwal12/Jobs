@@ -59,3 +59,7 @@ export const changePasswordFailure = (data) => ({
   type: userActions.CHANGE_PASSWORD_FAILURE,
   payload: data,
 });
+
+export const clearLoginData = () => ({
+  type: userActions.CLEAR_USER_LOGIN_DATA,
+});

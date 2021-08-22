@@ -1,0 +1,35 @@
+.console-container {
+  height: 100%;
+  background: transparent linear-gradient(260deg, #303f60 0%, #1a253c 100%) 0%
+    0% no-repeat padding-box;
+  background-size: 100% 35%;
+}
+
+.console-wrap {
+  padding: 0 90px;
+  height: calc(100% - 86px);
+}
+
+.console-header div {
+  margin: 5px 0;
+  color: white;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.console-header div span {
+  cursor: default;
+}
+
+.console-header div span:first-child {
+  cursor: pointer;
+}
+
+.console-content {
+  height: calc(100% - 22px);
+}
+
+.arrow-icon {
+  margin: 0 10px;
+}
